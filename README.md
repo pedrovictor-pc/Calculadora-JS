@@ -7,7 +7,7 @@ Uma calculadora web simples construída com HTML, CSS e JavaScript.
 ## Funcionalidades
 
 - Operações aritméticas básicas (adição, subtração, multiplicação, divisão)
-- Botões de limpar (C)
+- Botão de limpar (C)
 - Design prático
 - Tratamento de erros para operações inválidas
 
