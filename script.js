@@ -7,7 +7,8 @@ const simbolosOperadores = {
     '+': '+',
     '-': '−',
     '*': '×',
-    '/': '÷'
+    '/': '÷',
+    '**': '^'
 };
 
 const display = document.getElementById('display');
@@ -51,12 +52,15 @@ function inserirOperador(op) {
     primeiroNumero = display.value !== '' ? display.value : '0';
     display.value = simbolosOperadores[op];
     resetarDisplay = true
+
+    if (operadorAtual === 'Math.sqrt()'){
+        calcularResultado()
+    }
 }
 
 function calcularResultado() {
-    if (primeiroNumero === '' || operadorAtual === null) { return }
     const num1 = Number(primeiroNumero);
-    const num2 = Number(segundoNumero || display.value);
+    const num2 = Number(segundoNumero);
 
     let resultado;
     if (operadorAtual === '+') {
@@ -67,6 +71,10 @@ function calcularResultado() {
         resultado = num1 * num2;
     } else if (operadorAtual === '/') {
         resultado = num2 !== 0 ? num1 / num2 : 'Erro';
+    } else if (operadorAtual === '**') {
+        resultado = num1 ** num2;
+    } else if (operadorAtual === 'Math.sqrt()') {
+        resultado = num1 > 0 ? Math.sqrt(num1) : 'Erro';
     } else {
         return;
     }
